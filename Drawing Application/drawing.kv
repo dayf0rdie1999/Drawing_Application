@@ -1,0 +1,67 @@
+BoxLayout:
+    canvas:
+        Color:
+            rgb: .5,.5,.95
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    orientation: "vertical"
+
+    #MDToolbar:
+        #id: toolbar
+        #title: "Drawing"
+        #md_bg_color: app.theme_cls.primary_color
+        #left_action_items: [["menu", lambda x: None]]
+
+
+    BoxLayout:
+        id: box
+        padding: dp(10)
+        size_hint: None, None
+        size: self.minimum_size
+        spacing: dp(50)
+        orientation: "vertical"
+        pos_hint: {"center_x": .5}
+
+        BoxLayout:
+            size_hint: None, None
+            width: self.minimum_width
+            height: dp(40)
+            spacing: "20dp"
+            orientation: 'horizontal'
+
+
+            MDIconButton:
+                id: cut
+                icon: "cut.png"
+                on_press:
+                    drawWidget.cutDraw()
+
+            MDIconButton:
+                id: draw
+                icon: "pencil"
+                on_press:
+                    drawWidget.startDraw()
+
+            MDIconButton:
+                id: erase
+                icon: "eraser.png"
+                on_press:
+                    drawWidget.eraseDraw()
+
+
+    MyWidget:
+        id: drawWidget
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+
+
+
+
+
